@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="data/diccionario_de_ideas_afines_accuratesearch.js"></script>
+    <script src="lib/accuratesearch.min.js"></script>
+    <link rel="icon" href="icons/favicon.ico" sizes="32x32">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=5.0, user-scalable=yes">
+    <meta property="og:title" content="Diccionario de ideas afines" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ideasafines.ovh" />
+    <meta property="og:image" content="https://ideasafines.ovh/icons/icon-mask.png" />
+    <meta property="og:description" content="Búsqueda en el Diccionario de ideas afines de Fernando Corripio." />
+    <title>Diccionario de ideas afines</title>
+    <style>
+        /* source-serif-4-regular - latin */
+        @font-face {
+            font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Source Serif 4';
+            font-style: normal;
+            font-weight: 400;
+            src: url('fonts/source-serif-4-v8-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+    
+        /* source-serif-4-700 - latin */
+        @font-face {
+            font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+            font-family: 'Source Serif 4';
+            font-style: normal;
+            font-weight: 700;
+            src: url('fonts/source-serif-4-v8-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body{
+            font-family: "Source Serif 4", serif;
+            padding:0;
+            margin:0 10px;
+            background-color: #121212;
+        }
+        table{
+            width: 370px;
+            table-layout: fixed;
+            position: relative;
+            top: 0;
+            padding-top: 10px;
+            background-color: transparent;
+            z-index: 1;
+        }
+        td, tr{
+            width: 370px;
+            border: none;
+        }
+        b, a {
+            color: #9843BF;
+        }
+        input{
+            font-family: "Source Serif 4", serif;
+            color: #bfbfbf;
+            width: 370px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            border-color: #9843BF;
+            outline: none;
+            background-color: #333333;
+            position: absolute;
+            -webkit-appearance: none;
+        }
+        input{
+            padding:7px 5px;
+            box-sizing: border-box;
+
+        }
+        #midcolumn{
+            max-width: 50em;
+        }
+        #suggestions{
+            position: relative;
+            top: 50px;
+            color: #efefef;
+        }
+        #suggestions div{
+            display: table;
+            width: 100%;
+            padding: 10px 0;
+            margin: auto;
+            border-bottom: 1px solid #efefef;
+            overflow: visible;
+            white-space: wrap;
+        }
+        #intro{
+            position: relative;
+            top: 50px;
+            color: #efefef;
+        }
+        #guiaDeLectura, #urlAlternativas {
+          display: none;
+        }
+
+        #guiaDeLectura:target, #urlAlternativas:target {
+          display: block;
+        }
+
+        @media only screen and (max-width: 600px) {
+            table,
+            td,
+            tr,
+            input{
+                width: 97%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="midcolumn" class="center">
+    <table class="center">
+        <tr>
+            <td style="position: relative;">
+                <input type="text" id="userinput" autofocus="autofocus" placeholder="Cargando...">
+            </td>
+        </tr>
+    </table>
+    <div id="suggestions" class="center"></div>
+    <div id="intro" style="text-align:center">
+        <p><h1>Diccionario de&nbsp;ideas&nbsp;afines</h1></p>
+        <p><h2>de Fernando&nbsp;Corripio</h3></p>
+        <p><h4>&#x1F4A1;&#xFE0E; <a href="#guiaDeLectura">Guía de lectura</a></h4></p>
+            <div class="html" id="guiaDeLectura">
+            <p class="text-html" id="htmlContent" style="text-align:left"><b>En términos generales</b>, al buscar una o varias palabras se mostrarán sinónimos, antónimos y conceptos relacionados. Es válido ingresar una parte de una palabra (p. ej., <b>leng</b> en vez de <b>lenguaje</b>). El buscador ofrece más resultados de esa forma, pero es posible que sean de menor relevancia.<br><br>
+                <b>A continuación, la guía de lectura escrita por el autor del diccionario.</b><br><br>
+                "Esta obra permite, en primer término, hallar o recordar uno o varios vocablos o ideas específicos, necesarios al redactar o al expresarse verbalmente. En segundo lugar, facilita a quien trata un tema determinado, gran cantidad de conceptos y voces afines, lo que unido a las numerosas referencias cruzadas incrementa la riqueza y el ámbito ideológicos del tema hasta limites sorprendentes. En tercer lugar ofrece una división analítica de cada una de las distintas materias, contribuyendo a aclarar y concretar su sentido y alcance.
+Unos ejemplos servirán para ilustrar lo antedicho y dar una breve noción del uso de este Diccionario, ampliando lo que escuetamente se adelantó en la Introducción.<br><br>
+Se está escribiendo o tratando, por ejemplo, acerca de barcos de vela; recordamos, quizá, los términos <b>fragata</b> y <b>galeón</b>, pero no nos acordamos de otras voces similares. Entonces se busca cualquiera de esos dos nombres, y la referencia nos indica: V. BARCO 2. En esa entrada vemos: <b>2. Barcos de vela</b>, y hallamos, entre otros: galera, carabela, bergantín, corbeta, goleta, cúter, balandro, yate, sampán, y así hasta 42 nombres de veleros.<br><br>
+Además, el artículo barco nos ofrece otros temas afines, cada uno con su correspondiente numeración, como <b>3. Barcos mercantes</b>: carguero, transatlántico, motonave, petrolero, ballenero, así hasta 40 nombres. O bien, <b>6. Barcos de guerra</b>: portaaviones, acorazado, crucero, destructor, torpedero, minador, barreminas, monitor, cañonera, buque hospital, hasta 37 barcos de guerra en total.<br><br>
+Igualmente, las respectivas secciones numeradas tratan de las partes del barco, del cuarto de máquinas, el velamen, la enumeración y graduación de los tripulantes, tanto de marina de guerra (n.° 19), como de marina mercante (n.° 20), etc., etc. En total, el artículo <b>barco</b> consta de 24 secciones numeradas, lo que proporciona una muy amplia y ordenada visión del tema y su terminología.<br><br>
+Si se desea conocer o recordar los nombres de diversos indios americanos, entramos con el vocablo <b>indio</b>, y en el número 6 hallamos los de América del Norte: sioux, cheyennes, dakotas, navajos, comanches, mohicanos, iroqueses, etc. (más de 25 nombres). En <b>indio 8</b> figuran los de América del Sur: guaraníes, araucanos, coyas, jíbaros, chibchas, charrúas (unos 30 vocablos).<br><br>
+Cuando es necesario referirse a sectas protestantes, en este último término vemos: luteranos, metodistas, anglicanos, calvinistas adventistas, mormones y muchos otros (más de 20 voces).<br><br>
+En otro aspecto, si escribimos específicamente sobre un tema determinado, como, por ejemplo, <b>ejército</b>, en los apartados de ese mismo artículo se enumeran los distintos contingentes armados: cuerpo de ejército, división, brigada, regimiento, batallón, sección, pelotón, etc., por orden decreciente de importancia, lo mismo que la graduación de los militares: mariscal, capitán general, teniente general, general de división, general de brigada, coronel... capitán, teniente, etc. Otra sección nos proporciona una lista de los soldados antiguos: húsar, granadero, dragón, lancero, coracero, arcabucero, mosquetero, y así más de 40 nombres. Con éstos y muchos otros apartados del concepto ejército, el que consulta dispone de un campo temático de notable riqueza.<br><br>
+De igual manera pueden consultarse otros temas, como <b>astronomía</b>, <b>imprenta</b>, <b>enfermedad</b>, <b>instrumentos musicales</b>, <b>esgrima</b>, <b>sexo</b>, etc., y otros de índole abstracta: <b>egoísmo</b>, <b>bondad</b>, <b>ambición</b>, etc., y como éstas, innumerables y variadas materias, todo ello bien identificado y clasificado en secciones numéricas distintas. Dentro de cada una de esas secciones numeradas se hacen diversas separaciones, a su vez, ya sea por medio de punto y seguido o de punto y coma, con lo que se indican diferencias ideológicas más o menos acentuadas.<br><br>
+Además, si lo que se busca son sólo simples sinónimos de un término, el Diccionario posee una gran abundancia de éstos, aumentada con la extensa gama de voces afines.<br><br>
+Aunque el vocabulario es muy amplio, no pueden incluirse en la lista general voces muy especializadas, que harían mucho más voluminosa la obra. Así, no se hallará en esa relación alfabética, por ejemplo, el término <b>tetraciclina</b>, pero en cambio se encontrarán <b>estreptomicina</b> (más usual) y <b>antibiótico</b>. En este último, que es precisamente el artículo principal del tema, sí aparecen enumeradas en grupo <b>tetraciclina</b>, <b>aureomicina</b>, <b>terramicina</b>, <b>penicilina</b> y bastantes más medicamentos de esa clase.<br><br>
+Si en otros artículos cortos no se hallara la idea o término buscados en la voz de referencia (la precedida de V.), se consultará en la lista alfabética alguno de los tres vocablos afines precedentes, lo que puede conducir a un resultado positivo.<br><br>
+Cuando una palabra incluida en un grupo lleva un asterisco, ello indica que al consultar esa voz hallaremos un artículo largo o principal, que nos proporcionará numerosos términos afines al mismo. Muchas voces no llevan asterisco aunque corresponden a términos principales, porque el sentido con el que aparecen en ese grupo es diferente del que posee el artículo básico.<br><br>
+Cada número dentro de un artículo principal indica un apartado con identidad propia respecto a los demás, en el conjunto del tema general. Pero cuando ese número va precedido de un guión, se trata de una acepción o variedad de la sección numerada anterior, o bien del término principal. En el contexto de cada artículo o apartado se colocan primero, casi siempre, las voces más usuales o relacionadas con la idea básica.<br><br>
+Por último, y lo que es muy importante, procúrese leer por completo todo el apartado o artículo, antes de desistir de una consulta. La palabra o idea buscadas pueden aparecer al final".
+            </p>
+            <p style="text-align:center"><h4>&#x274C;&#xFE0E; <a href="#">Cerrar guía</a></h4></p>
+        </div>
+        <p><h4>&#x1F517;&#xFE0E; <a href="#urlAlternativas">URL alternativas</a></h4>
+            <div class="html" id="urlAlternativas">
+                <p class="text-html" id="htmlContent"><h5><a href="https://ideasafines.ovh">ideasafines.ovh</a><br><a href="https://ideasafines.github.io">ideasafines.github.io</a></h5></p>
+                <p style="text-align:center"><h4>&#x274C;&#xFE0E; <a href="#">Cerrar lista de URL</a></h4></p>
+            </div>
+        <p><h4>&#x1F4BE;&#xFE0E; <a href="ideasAfinesV1.5.zip">Versión fuera de línea</a></h4></p>
+        <p><h4>&#x1F4C4;&#xFE0E; <a href="licencias.html">Licencias</a></h4></p>
+        <p><br><br></p>
+    </div>
+</div>
+<script type="module">
+
+    (function(){
+
+        // Se inicializa la búsqueda.
+        let accurateSearch = new AccurateSearch();
+
+        // Se agregan los datos.
+        for (let i = 0; i < data.length; i++) {
+            accurateSearch.addText(i, data[i]);
+        }
+
+        document.getElementById("userinput").placeholder = "\uD83D\uDD0D\uFE0E Escribe aquí y pulsa \u0022\u21B5\u0022";
+
+        var suggestions = document.getElementById("suggestions");
+        var userinput = document.getElementById("userinput");
+
+        userinput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                show_results(userinput);
+            }
+        });
+
+        function highlightTermsInText(query, text){
+          const terms = query.split(' ');
+          terms.forEach(term => {
+            const regex = new RegExp(term, 'gi');
+            text = text.replace(regex, (match) => `<b>${match}</b>`);
+            });
+            return text
+        }
+
+        // Se podría hacer directamente modificando el diccionario, si no surgen problemas.
+        function multipleDefinitionNewlineHightlight(text){
+            const regex1 = new RegExp("[\\.\\—] ([0-9]{1,2})\\. [A-Z]", 'g');
+            text = text.replace(regex1, (match) => `<br>${match}`);
+            const regex2 = new RegExp("\\<br\\>\\.", 'g');
+            text = text.replace(regex2, (match) => `.<br>—`);
+            return text
+        }
+
+        function show_results(input){
+            var value = input.value;
+            let results = accurateSearch.search(value);
+            var entry, childs = suggestions.childNodes;
+            var i = 0, len = results.length;
+
+            for(; i < len; i++){
+
+                entry = childs[i];
+
+                if(!entry){
+
+                    entry = document.createElement("div");
+                    suggestions.appendChild(entry);
+                }
+
+                entry.innerHTML = multipleDefinitionNewlineHightlight(data[results[i]]);
+                entry.innerHTML = highlightTermsInText(value, entry.innerHTML);                
+            }
+
+            while(childs.length > len){
+
+                suggestions.removeChild(childs[i])
+            }
+
+            var first_result = data[results[0]];
+            var match = first_result && first_result.toLowerCase().indexOf(value.toLowerCase());
+        }
+    }());
+</script>
+</body>
+</html>
