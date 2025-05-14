@@ -1,7 +1,8 @@
 Versión actual:
-1.7 (mejora en la carga de la página para conexiones lentas)
+1.8 (correcciones del diccionario)
 
 Versiones anteriores:
+1.7 (mejora en la carga de la página para conexiones lentas)
 1.6 (correcciones de URL)
 1.5 (correcciones de URL)
 1.4 (correcciones del diccionario críticas y menores, también separación de líneas en resultados)
